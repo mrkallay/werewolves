@@ -4,8 +4,27 @@
 public class Player
 {
     private String name;
-    //Character character;
-    private boolean isDoppleganger;
+
+    private int turn;
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    Character character;
+    private boolean isDoppelganger;
 
     public String getName()
     {
@@ -17,13 +36,13 @@ public class Player
         this.name = name;
     }
 
-    public boolean isDoppleganger()
+    public boolean isDoppelganger()
     {
-        return isDoppleganger;
+        return isDoppelganger;
     }
 
-    public void setDoppleganger(boolean doppleganger)
+    public void setDoppelganger(boolean doppelganger)
     {
-        isDoppleganger = doppleganger;
+        isDoppelganger = doppelganger;
     }
 }

@@ -111,35 +111,58 @@ public class Game {
         System.out.println("You are now the "+doppelganger.getCharacter().getName());
     }
     public static void nightTurns(Character characters[], ArrayList<Player> players, Scanner input){
-        for (Character C: characters){
-            for (Player P: players){
-                if (P.getCharacter() == C){
+        for (Character C: characters) {
+            ArrayList<Player> werewolves = new ArrayList<>();
+            boolean didWerewolves = false;
+            ArrayList<Player> minions = new ArrayList<>();
+            boolean didMinions = false;
+            ArrayList<Player> masons = new ArrayList<>();
+            boolean didMasons = false;
+            for (Player P : players) {
+                if (P.getCharacter() == C) {
                     System.out.println("Found " + P.getName() + " for " + C.getName());
                     if (C.getName().equals("Werewolf")) {
+                        werewolves.add(P);
+                    } else if (C.getName().equals("Minion")) {
+                        minions.add(P);
+                    } else if (C.getName().equals("Mason")) {
+                        masons.add(P);
+                    } else if (C.getName().equals("Seer")) {
 
-                    }
-                    else if (C.getName().equals("Minion")){
+                    } else if (C.getName().equals("Robber")) {
 
-                    }
-                    else if (C.getName().equals("Mason")){
+                    } else if (C.getName().equals("Troublemaker")) {
 
-                    }
-                    else if (C.getName().equals("Seer")){
+                    } else if (C.getName().equals("Drunk")) {
 
-                    }
-                    else if (C.getName().equals("Robber")){
+                    } else if (C.getName().equals("Insomniac")) {
 
-                    }
-                    else if (C.getName().equals("Troublemaker")){
-
-                    }
-                    else if (C.getName().equals("Drunk")){
-
-                    }
-                    else if (C.getName().equals("Insomniac")){
-                        
                     }
                 }
+            }
+            if (C.getName().equals("Werewolf") && !didWerewolves) {
+                didWerewolves = true;
+                String msg = "The Werewolves Are: ";
+                for (Player wolf : werewolves) {
+                    msg += wolf.getName() + " ";
+                }
+                System.out.println(msg);
+            }
+            if (C.getName().equals("Minion") && !didMinions) {
+                didMinions = true;
+                String msg = "The Werewolves Are: ";
+                for (Player wolf : werewolves) {
+                    msg += wolf.getName() + " ";
+                }
+                System.out.println(msg);
+            }
+            if(C.getName().equals("Mason") && !didWerewolves) {
+                didWerewolves = true;
+                String msg = "The Masons Are: ";
+                for (Player mason : masons) {
+                    msg += mason.getName() + " ";
+                }
+                System.out.println(msg);
             }
         }
     }

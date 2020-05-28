@@ -111,13 +111,13 @@ public class Game {
         System.out.println("You are now the "+doppelganger.getCharacter().getName());
     }
     public static void nightTurns(Character characters[], ArrayList<Player> players, Scanner input){
+        boolean didWerewolves = false;
+        boolean didMinions = false;
+        boolean didMasons = false;
         for (Character C: characters) {
             ArrayList<Player> werewolves = new ArrayList<>();
-            boolean didWerewolves = false;
             ArrayList<Player> minions = new ArrayList<>();
-            boolean didMinions = false;
             ArrayList<Player> masons = new ArrayList<>();
-            boolean didMasons = false;
             for (Player P : players) {
                 if (P.getCharacter() == C) {
                     System.out.println("Found " + P.getName() + " for " + C.getName());
@@ -150,14 +150,14 @@ public class Game {
             }
             if (C.getName().equals("Minion") && !didMinions) {
                 didMinions = true;
-                String msg = "The Werewolves Are: ";
-                for (Player wolf : werewolves) {
-                    msg += wolf.getName() + " ";
+                String msg = "The Minions Are: ";
+                for (Player minion : minions) {
+                    msg += minion.getName() + " ";
                 }
                 System.out.println(msg);
             }
-            if(C.getName().equals("Mason") && !didWerewolves) {
-                didWerewolves = true;
+            if(C.getName().equals("Mason") && !didMasons) {
+                didMasons = true;
                 String msg = "The Masons Are: ";
                 for (Player mason : masons) {
                     msg += mason.getName() + " ";
